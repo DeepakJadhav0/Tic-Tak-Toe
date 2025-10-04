@@ -1,8 +1,8 @@
 import { useState } from "react"
 
-export default function Player({name , symbol}) {
+export default function Player({name , symbol , isactive}) {
     const [isediting , setisediting] = useState(false)
-    const [initialname , setinitialname] = useState(name)
+    const [initialname , setinitialname] = useState(name )
 
     function handelClickEdit(){
         setisediting(isediting => !isediting)
@@ -17,7 +17,7 @@ export default function Player({name , symbol}) {
         setinitialname(event.target.value)
     }
   return (
-        <li>
+        <li className={isactive ? "active" : undefined}>
           <span className="player">
             {playerName}
             <span className="player-symbol">{symbol}</span>
